@@ -33,7 +33,6 @@ def evaluate(code):
             codeptr = bracemap[codeptr]
         if command == ".":
             char = chr(cells[cellptr])
-            sys.stdout.write(char)
             stored_output.append(char)
         if command == ",":
             input_char = getch.getch()  # Get a single character of input

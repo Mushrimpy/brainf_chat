@@ -1,7 +1,6 @@
 import threading
 import socket
-from brainfuck.converter import TextBrainfuckConverter
-import brainfuck.interpreter as interpreter
+from utils import brainfuck_io
 
 host = "127.0.0.1"
 port = 8080
@@ -10,19 +9,11 @@ server.bind((host, port))
 server.listen()
 clients = []
 aliases = []
-converter = TextBrainfuckConverter()
 
 
 def broadcast(message):
     for client in clients:
         client.send(message)
-
-
-def brainfuck_io(input_string):
-    # Pass data through the Brainfuck converter and interpreter.
-    bf_code = converter.string_to_bf(input_string)
-    result = interpreter.evaluate(bf_code)
-    return result["output"]
 
 
 def handle_client(client):

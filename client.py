@@ -1,13 +1,18 @@
 import threading
 import socket
+from utils import brainfuck_io
 
-alias = input("Choose an alias >>> ")
+
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host = "127.0.0.1"
 port = 8080
 
 client.connect((host, port))
+
+alias_message = brainfuck_io("Choose an alias:")
+print(alias_message, end=" ")
+alias = input()
 
 
 def client_receive():
@@ -19,7 +24,8 @@ def client_receive():
             else:
                 print(message)
         except:
-            print("Error!")
+            error_message = brainfuck_io("Error!")
+            print(error_message)
             client.close()
             break
 
