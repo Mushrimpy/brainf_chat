@@ -26,3 +26,22 @@ A chat server where input/output operations are encoded and rendered using Brain
 
 ---
 
+---
+## Future Work
+
+- **Mega Brainfuck**  
+  Create a Brainfuck extension  to natively handle socket programming and possibly even multithreading.  
+  *Inspiration: [R. Singh's Brainfuck++](https://github.com/Gr3atWh173/brainfuckplusplus)*  
+
+- **Multi-line Inputs**  
+  Enhance the interpreter to allow for multi-line terminal input.
+
+
+
+## References
+
+- [1] [Brainfuck for Dummies](https://docs.google.com/document/d/1M51AYmDR1Q9UBsoTrGysvuzar2_Hx69Hz14tsQXWV6M/edit?tab=t.0)  
+- [2] [Fabian Mastenbroek's Brainfuck Interpreter in C](https://github.com/fabianishere/brainfuck)
+- [3] [Cydathria's Brainfuck Tutorial](http://cydathria.com/bf/Brainfuck.html)  
+
+---
