@@ -2,7 +2,11 @@
 
 A chat server where input/output operations are encoded and rendered using Brainfuck.
 
-## Setup
+
+## Demo
+
+---
+## Setting up
 
 
 ### Installation
@@ -10,7 +14,7 @@ A chat server where input/output operations are encoded and rendered using Brain
     cd brainf_chat
 
 
-## Running the Application
+### Running the App
 
 1. Open a terminal and start the server:
     ```bash
@@ -26,7 +30,38 @@ A chat server where input/output operations are encoded and rendered using Brain
 
 ---
 
+## How It Works
+
+The `TextBrainfuckConverter` takes a string and converts it into equivalent Brainfuck code. The network logic is handled in python.
+
+#### 1. Generating Brainfuck for a Character
+Each character is represented as an ASCII value. To optimize the code:
+- A **loop** is used to increment the target cell by 10 (to efficiently reach higher ASCII values).
+- Any remaining difference is handled by additional increments.
+
+For example, converting the character `A` (ASCII 65):
+
+```brainfuck
+[-]>[-]<++++++[>++++++++++<-]>+++++.<
+```
+
+- `[-]>[-]<` Ensures the initial 2 pointers are set to 0.
+- `++++++[>++++++++++<-]` Creates a loop which adds 10 to cell [2] 5 times (value in cell [1])
+- `>+++++.<` Extra increment and output.
+
+#### 2. Handling ASCII Value Differences Between Characters
+
+For subsequent characters, the converter calculates the difference in ASCII values between the current and previous characters. This reduces the number of operations.
+
+
+#### 3. Full String Conversion
+
+The converter iterates through the input string, applying the above logic for each character:
+- The first character uses `_char_to_bf`.
+- Subsequent characters use `_delta_to_bf` to minimize operations.
+
 ---
+
 ## Future Work
 
 - **Mega Brainfuck**  
