@@ -5,6 +5,8 @@ A chat server where input/output operations are encoded and rendered using Brain
 
 ## Demo
 
+![Example of server and client](./assets/demo.png)
+
 ---
 ## Setting up
 
@@ -32,7 +34,7 @@ A chat server where input/output operations are encoded and rendered using Brain
 
 ## How It Works
 
-The `TextBrainfuckConverter` takes a string and converts it into equivalent Brainfuck code. The network logic is handled in python.
+The `TextBrainfuckConverter` takes a string and converts it into equivalent Brainfuck code, which is subsequently evaluated by the interpreter in `brainfuck/interpreter.py`. The network logic is handled using the python socket library.
 
 #### 1. Generating Brainfuck for a Character
 Each character is represented as an ASCII value. To optimize the code:
@@ -46,7 +48,7 @@ For example, converting the character `A` (ASCII 65):
 ```
 
 - `[-]>[-]<` Ensures the initial 2 pointers are set to 0.
-- `++++++[>++++++++++<-]` Creates a loop which adds 10 to cell [2] 5 times (value in cell [1])
+- `++++++[>++++++++++<-]` Set cell [1] to 6 and create a loop to add 10 to cell [2] 6 times.
 - `>+++++.<` Extra increment and output.
 
 #### 2. Handling ASCII Value Differences Between Characters
