@@ -7,7 +7,7 @@ A chat server where input/output operations are encoded and rendered using Brain
 
 ### Installation
     git clone https://github.com/Mushrimpy/brainf_chat.git
-    cd brainfuck-chat
+    cd brainf_chat
 
 
 ## Running the Application
