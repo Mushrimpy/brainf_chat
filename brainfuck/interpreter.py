@@ -1,5 +1,5 @@
 import sys
-import getch
+import brainfuck.getch as getch
 
 
 def evaluate(code):

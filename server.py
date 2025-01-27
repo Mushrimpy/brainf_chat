@@ -1,7 +1,7 @@
 import threading
 import socket
-from converter import TextBrainfuckConverter
-import interpreter
+from brainfuck.converter import TextBrainfuckConverter
+import brainfuck.interpreter as interpreter
 
 host = "127.0.0.1"
 port = 8080
